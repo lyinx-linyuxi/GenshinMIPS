@@ -7,7 +7,8 @@
 # 3. 转换成二进制
 # 4. 写入文件
 
-import sys
+path = r"D:\Developer\repos\repos_github\GenshinMIPS\SimpleMIPSCPU\V_0.0.0\scripts"
+
 
 # 指令字典
 op_dict = {}
@@ -42,8 +43,8 @@ fuct = {
     "slt" : 42
 }
 
-file1 = r"D:\Developer\repos\code-in-vsc\Verilog\Computer Organization and Architecture\lab6\SimpleMIPSCPU\test.asm"
-file2 = r"D:\Developer\repos\code-in-vsc\Verilog\Computer Organization and Architecture\lab6\SimpleMIPSCPU\test.bin"
+file1 = path + r"\test.asm"
+file2 = path + r"\test.bin"
 
 # 处理R类型指令
 def process_r(line):
