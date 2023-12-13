@@ -8,7 +8,8 @@ module IMem (
 
     reg [`Data_Width-1:0] RAM[IMEM_SIZE-1:0];
     initial begin
-        $readmemb("D:/Developer/repos/code-in-vsc/Verilog/Computer Organization and Architecture/lab6/SimpleMIPSCPU/test.bin",RAM);
+        // 修改project_path为你的工程路径
+        // $readmemb("project_path/SimpleMIPSCPU/V_0.0.0/scripts/test.bin",RAM);
     end
     assign RD = RAM[A];
     

@@ -14,12 +14,12 @@ module RegFile
     always@(posedge CLK)begin
         // if(WE3)rf[WA3]<=WD3;
         if(rst)begin
-            $readmemb("D:/Developer/repos/code-in-vsc/Verilog/Computer Organization and Architecture/lab6/SimpleMIPSCPU/reg.bin",rf);
+            // 修改project_path为你的工程路径 
+            // $readmemb("project_path/SimpleMIPSCPU/V_0.0.0/scripts/reg.bin",rf);
         end
         else if(WE3)begin
             rf[WA3]<=WD3;       
         end
-        $writememb("D:/Developer/repos/code-in-vsc/Verilog/Computer Organization and Architecture/lab6/SimpleMIPSCPU/reg_modified.bin",rf);
     end
  
     assign RD1=(RA1!=0)?rf[RA1]:0;

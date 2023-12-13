@@ -31,7 +31,8 @@ module SimpleMIPSCPU_tb;
     integer i;
     integer start;
     initial begin
-        $readmemb("D:/Developer/repos/code-in-vsc/Verilog/Computer Organization and Architecture/lab6/SimpleMIPSCPU/test.bin", ins);
+        // 修改project_path为你的工程路径
+        // $readmemb("D:project_path/SimpleMIPSCPU/V_0.0.0/scripts/test.bin", ins);
         CLK=1;
         rst=1;
         start = 0;

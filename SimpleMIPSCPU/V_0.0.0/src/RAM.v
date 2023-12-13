@@ -20,10 +20,6 @@ module RAM (
             4'b101:  RAM[Addr] <= Data;  // write operation
             default: Data_i <= 32'bz;
         endcase
-        $writememb(
-            "D:/Developer/repos/code-in-vsc/Verilog/Computer Organization and Architecture/lab6/SimpleMIPSCPU/RAM_DUMP.bin",
-            RAM);
-
     end
 
 endmodule
