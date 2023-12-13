@@ -1,4 +1,4 @@
-# SimpleMIPSCP Version 0.0.0U
+# SimpleMIPSCP Version 0.0.0
 
 Hello traveller!
 
