@@ -7,7 +7,23 @@
 # 3. 转换成二进制
 # 4. 写入文件
 
-path = r"D:\Developer\repos\repos_github\GenshinMIPS\SimpleMIPSCPU\V_0.0.0\scripts"
+import sys
+
+
+def check_variable_defined(variable_name, custom_warning):
+    try:
+        # 尝试访问变量，如果未定义会抛出 NameError 异常
+        variable_value = globals()[variable_name]
+    except KeyError:
+        print(custom_warning)
+        sys.exit()
+    else:
+        print(f"变量 {variable_name} 已定义，其值为: {variable_value}")
+
+
+# 修改project path为你的项目路径
+# path = r"project path\GenshinMIPS\SimpleMIPSCPU\V_1.0.0\scripts"
+check_variable_defined('path', '修改project path为你的项目路径')
 
 
 # 指令字典
@@ -16,12 +32,12 @@ op_dict = {}
 
 ins_type = {}
 
-r_ins = ["add","sub","and","or","slt"]
+r_ins = ["add", "sub", "and", "or", "slt"]
 for instruction in r_ins:
     ins_type[instruction] = "R"
     op_dict[instruction] = 0
 
-i_ins = ["addi","lw","sw","beq"]
+i_ins = ["addi", "lw", "sw", "beq"]
 for instruction in i_ins:
     ins_type[instruction] = "I"
 op_dict["addi"] = 8
@@ -36,17 +52,19 @@ ins_type["nop"] = "S"
 op_dict["nop"] = 0
 
 fuct = {
-    "add" : 32,
-    "sub" : 34,
-    "and" : 36,
-    "or" : 37,
-    "slt" : 42
+    "add": 32,
+    "sub": 34,
+    "and": 36,
+    "or": 37,
+    "slt": 42
 }
 
 file1 = path + r"\test.asm"
 file2 = path + r"\test.bin"
 
 # 处理R类型指令
+
+
 def process_r(line):
     # 读取指令
     op = line[0]
@@ -54,7 +72,6 @@ def process_r(line):
     rd = int(line[1])
     rs = int(line[2])
     rt = int(line[3])
-
 
     # 读取函数码
     func = fuct[op]
@@ -75,6 +92,8 @@ def process_r(line):
     return bin_code
 
 # 处理I类型指令
+
+
 def process_i(line):
     # 读取指令
     op = line[0]
@@ -108,6 +127,8 @@ def process_i(line):
     return bin_code
 
 # 处理J类型指令
+
+
 def process_j(line):
     # 读取指令
     op = line[0]
@@ -132,12 +153,14 @@ def process_j(line):
     return bin_code
 
 # 分割字符串
+
+
 def split_line(line):
-    line = line.replace('\n','')
-    line = line.replace(',','')
-    line = line.replace('(',' ')
-    line = line.replace(')',' ')
-    line = line.replace('$','')
+    line = line.replace('\n', '')
+    line = line.replace(',', '')
+    line = line.replace('(', ' ')
+    line = line.replace(')', ' ')
+    line = line.replace('$', '')
     line = line.split(' ')
     return line
 

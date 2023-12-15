@@ -7,7 +7,22 @@
 # 3. 转换成二进制
 # 4. 写入文件
 
-path = r"D:\Developer\repos\repos_github\GenshinMIPS\SimpleMIPSCPU\V_0.0.0\scripts"
+import sys
+
+
+def check_variable_defined(variable_name, custom_warning):
+    try:
+        # 尝试访问变量，如果未定义会抛出 NameError 异常
+        variable_value = globals()[variable_name]
+    except KeyError:
+        print(custom_warning)
+        sys.exit()
+    else:
+        print(f"变量 {variable_name} 已定义，其值为: {variable_value}")
+
+# 修改project path为你的项目路径
+# path = r"project path\GenshinMIPS\SimpleMIPSCPU\V_0.0.0\scripts"
+check_variable_defined('path', '修改project path为你的项目路径') 
 
 
 # 指令字典
