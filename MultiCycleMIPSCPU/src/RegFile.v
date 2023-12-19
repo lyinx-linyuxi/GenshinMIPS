@@ -14,12 +14,14 @@ module RegFile
     always@(negedge CLK)begin
         // if(WE3)rf[WA3]<=WD3;
         if(rst)begin
-            $readmemb("D:/Developer/repos/code-in-vsc/Verilog/Computer Organization and Architecture/lab6/MultiCycleMIPSCPU/reg.bin",rf);
+            // 修改project path为项目路径
+            // $readmemb("project path/MultiCycleMIPSCPU/scripts/reg.bin",rf);
         end
         else if(WE3)begin
             rf[WA3]<=WD3;       
         end
-        $writememb("D:/Developer/repos/code-in-vsc/Verilog/Computer Organization and Architecture/lab6/MultiCycleMIPSCPU/reg_modified.bin",rf);
+        // 修改project path为项目路径
+        // $writememb("project path/MultiCycleMIPSCPU/scripts/reg_modified.bin",rf);
     end
  
     assign RD1=(RA1!=0)?rf[RA1]:0;

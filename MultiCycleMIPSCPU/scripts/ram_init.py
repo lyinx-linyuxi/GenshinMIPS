@@ -1,7 +1,21 @@
 import random
+import sys
+def check_variable_defined(variable_name, custom_warning):
+    try:
+        # 尝试访问变量，如果未定义会抛出 NameError 异常
+        variable_value = globals()[variable_name]
+    except KeyError:
+        print(custom_warning)
+        sys.exit()
+    else:
+        print(f"变量 {variable_name} 已定义，其值为: {variable_value}")
+
+
+# 修改project path为你的项目路径
+# path = r"project path\GenshinMIPS\MultiCycleMIPSCPU\scripts"
+check_variable_defined('path', '修改project path为你的项目路径')
 
 # 设定路径
-path = r"D:\Developer\repos\code-in-vsc\Verilog\Computer Organization and Architecture\lab6\MultiCycleMIPSCPU"
 data_file = path + r"\test.bin"  # 从这个文件读取前64行
 output_file = path + r"\RAM_init.bin"  # 输出文件
 

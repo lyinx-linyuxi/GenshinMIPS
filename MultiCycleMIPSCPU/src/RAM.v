@@ -13,10 +13,11 @@ module RAM (
     assign Data = (R_W) ? 32'bzzzz_zzzz_zzzz_zzzz_zzzz_zzzz_zzzz_zzzz : RAM[Addr];
 
     initial begin 
-        $readmemb(
-                    "D:/Developer/repos/code-in-vsc/Verilog/Computer Organization and Architecture/lab6/MultiCycleMIPSCPU/RAM_init.bin",
-                    RAM
-                );
+        // 修改project path为项目路径
+        // $readmemb(
+        //             "project path/GenshinMIPS/MultiCycleMIPSCPU/scripts/RAM_init.bin",
+        //             RAM
+        //         );
     end
     integer i;
     always @(posedge CLK) begin
@@ -26,9 +27,10 @@ module RAM (
             4'b101: RAM[Addr] <= Data;  // write operation
             default: Data_i <= 32'bz;
         endcase
-        $writememb(
-            "D:/Developer/repos/code-in-vsc/Verilog/Computer Organization and Architecture/lab6/MultiCycleMIPSCPU/RAM_DUMP.bin",
-            RAM);
+        // 修改project path为项目路径
+        // $writememb(
+        //             "project path/GenshinMIPS/MultiCycleMIPSCPU/scripts/RAM_DUMP.bin",
+        //    RAM);
 
     end
 
